@@ -4,7 +4,8 @@
 \usepackage[english]{babel}
 \usepackage{csquotes}
 \usepackage{hyperref}
-\usepackage[style=ieee, autocite=inline]{biblatex}
+\usepackage[acronym]{glossaries}
+\usepackage[style=ieee, autocite=inline, backend=biber]{biblatex}
 \usepackage{siunitx}
 \usepackage{todonotes}
 \usepackage{parskip}
@@ -13,6 +14,12 @@
 \microtypecontext{spacing=nonfrench}
 \pgfplotsset{compat=1.15}
 \addbibresource{references.bib}
+
+\makenoidxglossaries
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{http}{HTTP}{Hyper-Text Transfer Protocol}
+\newacronym{json}{JSON}{JavaScript Object Notation}
+\newacronym{csv}{CSV}{Comma Seperated Values}
 
 \subject{BUSAN 100G: Digital Information Literacy}
 \title{Piazza Visualisation \& Analysis}
@@ -27,7 +34,9 @@
 I have decided to analyse the timing of Piazza posts relative to key dates.
 
 \section{Source}
-I used the Piazza internal API to scrape data from their site. I was able to use \cite{piazza-api}
+I used the Piazza internal \acrshort{api} to scrape data from their site. I was able to use an unofficial python wrapper\cite{piazza-api}, which allowed me to grab data without research into the structure of their \acrshort{http} \acrshort{api}.
+
+I initially scraped the data into a \acrshort{json} file.
 
 \section{Analysis \& Visualisation}
 
@@ -42,6 +51,7 @@ I use Bib-\LaTeX{} as my back-end for my referencing, which will automatically a
 
 This tool-set allows me to access my work from any location: either from overleaf, or by cloning my repository and manually compiling my document.
 
+\printnoidxglossary[type=\acronymtype]
 \printbibliography
 
 \end{document}
