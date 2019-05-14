@@ -4,7 +4,8 @@
 \usepackage[english]{babel}
 \usepackage{csquotes}
 \usepackage{hyperref}
-\usepackage[style=apa, autocite=inline]{biblatex}
+\usepackage[acronym]{glossaries}
+\usepackage[style=ieee, autocite=inline, backend=biber]{biblatex}
 \usepackage{siunitx}
 \usepackage{todonotes}
 \usepackage{parskip}
@@ -12,6 +13,13 @@
 
 \microtypecontext{spacing=nonfrench}
 \pgfplotsset{compat=1.15}
+\addbibresource{references.bib}
+
+\makenoidxglossaries
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{http}{HTTP}{Hyper-Text Transfer Protocol}
+\newacronym{json}{JSON}{JavaScript Object Notation}
+\newacronym{csv}{CSV}{Comma Seperated Values}
 
 \subject{BUSAN 100G: Digital Information Literacy}
 \title{Piazza Visualisation \& Analysis}
@@ -26,6 +34,9 @@
 I have decided to analyse the timing of Piazza posts relative to key dates.
 
 \section{Source}
+I used the Piazza internal \acrshort{api} to scrape data from their site. I was able to use an unofficial python wrapper\cite{piazza-api}, which allowed me to grab data without research into the structure of their \acrshort{http} \acrshort{api}.
+
+I initially scraped the data into a \acrshort{json} file.
 
 \section{Analysis \& Visualisation}
 
@@ -34,10 +45,13 @@ This document was written in \LaTeX. Primarily through the online service Overle
 
 I use the distributed version control system git to keep versions of my source code available (this includes both this document and any code used). Since I am the sole contributor to this project and it is relatively small I used a simple linear master branch. I use GitHub as a centralised store for my repository. All versions of my source can be accessed online\footnote{\url{https://github.com/j-chad/piazza-analysis}}
 
-My referencing is managed with Zotero, which has the benefit of integration with Overleaf. This means that as soon as I add a new source through Zotero, it will automatically be included in my reference list. 
+I originally managed my references with Zotero, but found many problems with using it with Bib-\LaTeX{}. The citation keys it generated were messy and many fields were incorrectly populated. I tried Mendeley as an alternative but ultimately found it easier to write the database entries manually.
 
-I use Bib-Latex as my back-end for my referencing, which will automatically add a reference list and citations where needed.
+I use Bib-\LaTeX{} as my back-end for my referencing, which will automatically add a reference list and citations where needed.
 
 This tool-set allows me to access my work from any location: either from overleaf, or by cloning my repository and manually compiling my document.
+
+\printnoidxglossary[type=\acronymtype]
+\printbibliography
 
 \end{document}
