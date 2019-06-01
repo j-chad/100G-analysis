@@ -41,6 +41,8 @@ Stack Overflow surveys developers using their site annually. It is one of the be
 
 The data is contained in a simple CSV file with 85 columns. The description of what each column is can be found in the schema file published alongside the dataset. In total, the dataset contains \num{88883} rows.
 
+When Stack Overflow compiled the data, they used multiple values in a single cell. To extract this data, I created a simple script to create modified files. This file is available with the rest of my files\cite{repo}.
+
 Since the data is for a single year, we cannot calculate trends.
 
 \section{Analysis \& Visualisation}
@@ -67,16 +69,17 @@ As shown in \autoref{fig:country_responses}, the majority of responses originate
 
 The age of respondents (\autoref{fig:age_responses}) is a normal distribution. With the majority being within \numrange{20}{40} years old. I was also curious about the average age in each country. This can be seen in \autoref{fig:average_age}. I only included countries with 100 or more responses so results wouldn't be skewed by countries with a singular response that is not representative.
 
-\subsection{Academic History}
+\subsection{Visualisations}
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\linewidth]{Documentation/images/majors.png}
-    \caption{Majors undertaken by respondents}
-    \label{fig:majors}
+    \includegraphics[width=\linewidth]{Documentation/images/languages.png}
+    \caption{Number of respondents who work with a language}
+    \label{fig:languages}
 \end{figure}
-As someone currently taking engineering with the intention of specialising in software, I am very interested in the academic paths taken by professional and hobby programmers.
+One of the most crucial aspects of programming is the language used. \autoref{fig:languages} shows the languages that respondents said that they used for their work. JavaScript \& HTML/CSS hold the top spot with 27\% of all respondents working with them. These three languages are generally paired together when being used to create a Front-End web application. This gives an indication that the majority of professional programmers have a role that involves managing web content.
 
-\ref{fig:majors} shows that, unsurprisingly, computer science and software engineering take the top position, with 62.44\%. I am however, surprised that only 1.3\% have not declared a major, as there is a lot of debate online whether it's truly important to have a degree to get a programming job.
+One of the more surprising results of the survey is that more jobs use Python rather than Java. Java has long been the default language for professional applications.
+
 
 
 \section{Report Management}
