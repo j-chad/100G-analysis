@@ -1,9 +1,10 @@
+from copy import copy
 from pathlib import Path
 
 import pandas
 
 if __name__ == "__main__":
-    df = pandas.read_csv(Path("../survey_results_public.csv"))
+    df = pandas.read_csv(Path("../survey_results_public.csv"), index_col="Respondent")
     multiColumns = [
         "LanguageWorkedWith", "LanguageDesireNextYear",
         "DatabaseWorkedWith", "DatabaseDesireNextYear",
@@ -12,10 +13,9 @@ if __name__ == "__main__":
         "MiscTechWorkedWith", "MiscTechDesireNextYear"
     ]
     for i in multiColumns:
-        s = df[i].str.split(";").apply(pandas.Series, 1).stack()
+        sf = df.copy()
+        s = sf[i].str.split(";").apply(pandas.Series, 1).stack()
         s.index = s.index.droplevel(-1)
         s.name = i
-        del df[i]
-        df.join(s)
         print(f"Done: {i}")
-    df.to_csv(Path("../survey_results_public_modified.csv"))
+        s.to_csv(Path(f"../survey_results_public_{i}_modified.csv"), header=True, index=True)
