@@ -8,11 +8,9 @@
 \usepackage[binary-units=true]{siunitx}
 \usepackage{todonotes}
 \usepackage{parskip}
-\usepackage{pgfplots}
 \usepackage[nomarkers,figuresonly,nolists,noheads]{endfloat}
 
 \microtypecontext{spacing=nonfrench}
-\pgfplotsset{compat=1.15}
 \addbibresource{references.bib}
 
 \renewcommand{\efloatseparator}{\mbox{}}
@@ -87,13 +85,13 @@ One of the more surprising results of the survey is that more jobs use Python ra
 \section{Report Management}
 This document was written in \LaTeX{}\autocite{LaTeX}. Primarily through the online service Overleaf, but also occasionally compiled manually.
 
-I use the distributed version control system git\autocite{git} to keep versions of my source code available (this includes both this document and any code used). Since I am the sole contributor to this project and it is relatively small I used a simple linear master branch. I use GitHub as a centralised store for my repository. All versions of my source can be accessed online\autocite{repo}
+I use the distributed version control system git\autocite{git} to keep versions of my source code available (this includes both this document and any code used). Since I am the sole contributor to this project, and it is relatively small; I used a simple linear master branch. I use GitHub as a centralised store for my repository. All versions of my source can be accessed online\autocite{repo}
 
-I originally managed my references with Zotero, but found many problems with using it with Bib-\LaTeX{}. The citation keys it generated were messy and many fields were incorrectly populated. I tried Mendeley as an alternative but ultimately found it much easier to write the database entries manually. This gives me similar benefits to using
+I initially managed my references with Zotero but found many problems with using it in combination with Bib-\LaTeX{}. The citation keys it generated were messy, and many fields were incorrectly populated. I tried Mendeley as an alternative but ultimately found it much easier to write the database entries manually. This gives me similar benefits to using
 
 I use Bib-\LaTeX{} as my back-end for my referencing, which will automatically add a reference list and citations where needed.
 
-This tool-set allows me to access my work from any location: either from overleaf, or by cloning my repository and manually compiling my document. It also gives freedom for my work flow to be integrated directly into this document. For example, if I add or change a reference, the document will automatically update and insert it in any relevant locations.
+This tool-set allows me to access my work from any location: either from overleaf or by cloning my repository and manually compiling my document. It also gives freedom for my workflow to be integrated directly into this document. For example, if I add or change a reference, the document will automatically update and insert it in any suitable locations.
 
 \printbibliography
 
